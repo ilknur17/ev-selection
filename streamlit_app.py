@@ -2,6 +2,17 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+
+username = st.text_input("Kullanıcı adınızı girin:").strip().lower()
+if st.button("Giriş Yap"):
+    if username in ["ilknur", "murathan"]:
+        st.session_state.username = username
+        st.experimental_rerun()
+    else:
+        st.error("Bu uygulamayı kullanma yetkiniz yok.")
+
+
+
 # Load the cleaned EV dataset
 @st.cache_data
 def load_data():
